@@ -1,0 +1,769 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.1">
+    
+    
+      
+        <title>Configuración - Elastic Stack</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.23b6d78a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#configuracion" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Elastic Stack" class="md-header__button md-logo" aria-label="Elastic Stack" data-md-component="logo">
+      <img src="JygaLogo.png">
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Elastic Stack
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Configuración
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Elastic Stack" class="md-nav__button md-logo" aria-label="Elastic Stack" data-md-component="logo">
+      <img src="JygaLogo.png">
+    </a>
+    Elastic Stack
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Objetivo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2%20Previo%20a%20la%20instalacion.html" class="md-nav__link">
+        Previo a la instalación del stack
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Beats
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Beats" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Beats
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Beats/1I%20ndex.html" class="md-nav__link">
+        Introducción
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Beats/Filebeat.html" class="md-nav__link">
+        Filebeat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Beats/Winlogbeat.html" class="md-nav__link">
+        Winlogbeat
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Elasticsearch
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Elasticsearch" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Elasticsearch
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1%20Instalaci%C3%B3n.html" class="md-nav__link">
+        Instalación
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Configuración
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="2%20Configuraci%C3%B3n.html" class="md-nav__link md-nav__link--active">
+        Configuración
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jvmoptions" class="md-nav__link">
+    Jvm.options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elasticsearchyml" class="md-nav__link">
+    ElasticSearch.yml
+  </a>
+  
+    <nav class="md-nav" aria-label="ElasticSearch.yml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-inicial" class="md-nav__link">
+    Configuración inicial
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="3%20Implementaci%C3%B3n%20de%20seguridad.html" class="md-nav__link">
+        Implementación de seguridad
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Kibana
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Kibana" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Kibana
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kibana/4%20Kibana.html" class="md-nav__link">
+        Instalación
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kibana/5%20Configuracion.html" class="md-nav__link">
+        Configuración
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kibana/6%20Seguridad.html" class="md-nav__link">
+        Llave de encriptación y conexión segura a Elasticsearch
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Logstash
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Logstash" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Logstash
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Logstash/5%20Instalacion.html" class="md-nav__link">
+        Instalación
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Logstash/6%20Configuraci%C3%B3n.html" class="md-nav__link">
+        Configuración
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jvmoptions" class="md-nav__link">
+    Jvm.options
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elasticsearchyml" class="md-nav__link">
+    ElasticSearch.yml
+  </a>
+  
+    <nav class="md-nav" aria-label="ElasticSearch.yml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-inicial" class="md-nav__link">
+    Configuración inicial
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="configuracion">Configuración</h1>
+<p>Existen principalmente 2 archivos que se encargan de la configuración de ElasticSearch: <code>jvm.options</code> y <code>elasticsearch.yml</code>, se explicará cada una de las líneas que fueron modificadas de los parámetros estándar.</p>
+<h2 id="jvmoptions">Jvm.options</h2>
+<p>Cuando se ejecuta Elastic Search se crea una maquina virtual de proceso nativo llamada Java Virtual Machine (JVM). La memoria que se asigna a esta máquina virtual se realiza automáticamente en base a los recursos del servidor y los roles del nodo. Sin embargo, al tener otros procesos en el servidor es conveniente ajustar esta memoria para no afectarlos y tener mayor control sobre el servicio de Elastic Search.</p>
+<p>Este archivo se encuentra en la dirección <code>C:\Program Files\elasticsearch-7.16.1\config\</code> La sección de interés se llama <code>JVM heap size</code>. Si bien es posible hacer las modificaciones sobre este archivo, como buena práctica y recomendación misma de Elastic, se crea otro archivo con mismo nombre y extensión para ubicarlo en el directorio <code>C:\Program Files\elasticsearch-7.16.1\config\jvm.options.d</code></p>
+<p>En ese archivo escribir lo siguiente:</p>
+<blockquote>
+<p>-Xms2g</p>
+<p>-Xmx2g</p>
+</blockquote>
+<p>Donde el valor numérico no debe ser mayor al 50% de la memoria total del servidor y se recomienda que los dos valores sean iguales; en este caso se está asignando 2GB de memoria mínima y máxima para la máquina virtual. También por cuestiones de <a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/heap-sizing.html#compressed_oops">Java</a> no es recomendable pasar de 32 GB.</p>
+<p>Una vez modificado esto, iniciar el servicio de elastic search
+<img alt="start elasticsearch" src="image3.2.png" /></p>
+<p>La comunicación se realiza por medio del puerto 9200, si se visita la dirección http://localhost:9200/ se muestra la información de la instancia:
+<img alt="localhost:9200" src="image3.3.png" /></p>
+<p>Siguiendo los pasos anteriores hasta este punto se puede realizar la instalación de ElasticSearch en todos los servidores que se requiera. En la siguiente sección se cubren los aspectos necesarios para la comunicación entre ellos y la implementación de seguridad.</p>
+<h2 id="elasticsearchyml">ElasticSearch.yml</h2>
+<p>Este archivo contiene la mayor parte de la configuración de Elastic Search, se encuentra en la dirección <code>C:\Program Files\elasticsearch-7.16.1\config\elasticsearch.yml</code> y a diferencia del archivo <code>jvm.options</code> se edita directamente sobre el fichero sin tener que crear otro.</p>
+<p>Los datos usados a partir de ahora corresponden para el servidor 10.91.116.215 que forma parte del cluster presentado en la sección de Arquitectura General y fácilmente se puede usar de ejemplo para la configuración de otras instancias de Elasticsearch.</p>
+<h3 id="configuracion-inicial">Configuración inicial</h3>
+<p>Se le llama cluster al conjunto de servidores con instancias de Elastic Search comunicadas entre sí. Un cluster se puede formar a partir de 1 instancia. Por defecto se le asigna el nombre <code>elasticsearch</code>, el cual se debería cambiar para evitar que accidentalmente una instancia se una a un cluster no deseado.</p>
+<p>Para ello solo hace falta descomentar la siguiente línea y poner el nombre que se quiera:</p>
+<blockquote>
+<p># ---------------------------------- Cluster -----------------------------------</p>
+<p># Use a descriptive name for your cluster:</p>
+<p><code>cluster.name: jygacluster</code></p>
+</blockquote>
+<p>Un cluster se conforma de nodos, es decir, cada servidor con Elastic Search representa un nodo. También es recomendable modificar el nombre por defecto en caso de que se vayan a crear varios nodos, en este caso se eligió con el sufijo 215 haciendo referencia a la dirección IP del servidor donde se encuentra alojado: 10.91.116.215. Los demás nodos fueron nombrados con la misma regla.</p>
+<blockquote>
+<p># ------------------------------------ Node ------------------------------------</p>
+<p># Use a descriptive name for the node:</p>
+<p><code>node.name: node-215</code></p>
+</blockquote>
+<p>El siguiente parámetro asegura que la memoria asignada previamente en el archivo <code>jvm.opt</code> se bloqueé para otras aplicaciones y sea para uso exclusivo de Elasticsearch. Su performance disminuye si esto no se cambia y realiza swapping de memoria.</p>
+<blockquote>
+<p># ----------------------------------- Memory -----------------------------------</p>
+<p># Lock the memory on startup:</p>
+<p><code>bootstrap.memory_lock: true</code></p>
+</blockquote>
+<p>Como la intención es crear un cluster con varios nodos, se coloca la dirección IP para que otros servidores se puedan comunicar con el nodo.</p>
+<blockquote>
+<p># ---------------------------------- Network -----------------------------------</p>
+<p># By default Elasticsearch is only accessible on localhost. Set a different
+# address here to expose this node on the network:</p>
+<p><code>network.host: 10.91.116.215</code></p>
+</blockquote>
+<p>Como ya se probó anteriormente, por defecto Elasticsearch se comunica por medio del puerto 9200, si se requiere cambiar esto se modifica la siguiente línea:</p>
+<blockquote>
+<p># By default Elasticsearch listens for HTTP traffic on the first free port it
+# finds starting at 9200. Set a specific HTTP port here:</p>
+<p>http.port: 9200</p>
+</blockquote>
+<p>Aquí se establece que el nodo puede ser elegido maestro. Un nodo maestro tiene la faculta de administrar el clúster.</p>
+<blockquote>
+<p><code>node.master: true</code></p>
+</blockquote>
+<p>Se agrega la dirección IP de los demás servidores con los que deberá tener comunicación el nodo, como en este caso se está configurando el nodo-215 se excluye de la lista y queda de la siguiente forma:</p>
+<blockquote>
+<p># --------------------------------- Discovery ----------------------------------</p>
+<p># Pass an initial list of hosts to perform discovery when this node is started:
+# The default list of hosts is ["127.0.0.1", "[::1]"]</p>
+<p><code>discovery.seed_hosts: ["10.91.116.145", "10.91.116.56", "10.91.116.172"]</code></p>
+</blockquote>
+<p>Entonces siguiendo la lógica anterior, la configuración del nodo-56 es así:</p>
+<blockquote>
+<p># --------------------------------- Discovery ----------------------------------</p>
+<p># Pass an initial list of hosts to perform discovery when this node is started:
+# The default list of hosts is ["127.0.0.1", "[::1]"]</p>
+<p><code>discovery.seed_hosts: ["10.91.116.145", "10.91.116.215", "10.91.116.172"]</code></p>
+</blockquote>
+<p>Y así sucesivamente con los demás nodos.</p>
+<p>En el siguiente parámetro se incluye el nombre de los nodos maestros iniciales, si al arranque de Elasticsearch falla la comunicación con alguno de ellos, el nodo incomunicado no podrá unirse al cluster y el servicio se detendrá para evitar que creé uno propio:</p>
+<blockquote>
+<p># Bootstrap the cluster using an initial set of master-eligible nodes:</p>
+<p><code>cluster.initial_master_nodes: ["node-145", "node-56"]</code></p>
+</blockquote>
+<p>Los servidores usados no tienen acceso a internet, así que se debe agregar la siguiente línea para evitar el error al querer descargar la característica de geolocalización de IP en el arranque del servicio:</p>
+<blockquote>
+<p><code>ingest.geoip.downloader.enabled: false</code></p>
+</blockquote>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="1%20Instalaci%C3%B3n.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Instalación" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Instalación
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="3%20Implementaci%C3%B3n%20de%20seguridad.html" class="md-footer__link md-footer__link--next" aria-label="Next: Implementación de seguridad" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Implementación de seguridad
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.c7dec7e7.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.da79ceb7.min.js"></script>
+      
+    
+  </body>
+</html>

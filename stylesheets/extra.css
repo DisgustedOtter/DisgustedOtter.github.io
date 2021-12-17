@@ -1,0 +1,11 @@
+.md-header{
+    background-color: #303030;
+}
+
+.md-typeset code{
+    background-color: #DCDCE0;
+}
+
+.md-typeset :where(code,pre,kbd){
+    color:tomato;
+}

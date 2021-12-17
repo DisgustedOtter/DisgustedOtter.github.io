@@ -1,0 +1,900 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.1">
+    
+    
+      
+        <title>Configuración - Elastic Stack</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.23b6d78a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#configuracion" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Elastic Stack" class="md-header__button md-logo" aria-label="Elastic Stack" data-md-component="logo">
+      <img src="JygaLogo.png">
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Elastic Stack
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Configuración
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Elastic Stack" class="md-nav__button md-logo" aria-label="Elastic Stack" data-md-component="logo">
+      <img src="JygaLogo.png">
+    </a>
+    Elastic Stack
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Objetivo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2%20Previo%20a%20la%20instalacion.html" class="md-nav__link">
+        Previo a la instalación del stack
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Beats
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Beats" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Beats
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Beats/1I%20ndex.html" class="md-nav__link">
+        Introducción
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Beats/Filebeat.html" class="md-nav__link">
+        Filebeat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Beats/Winlogbeat.html" class="md-nav__link">
+        Winlogbeat
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Elasticsearch
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Elasticsearch" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Elasticsearch
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Elasticsearch/1%20Instalaci%C3%B3n.html" class="md-nav__link">
+        Instalación
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Elasticsearch/2%20Configuraci%C3%B3n.html" class="md-nav__link">
+        Configuración
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Elasticsearch/3%20Implementaci%C3%B3n%20de%20seguridad.html" class="md-nav__link">
+        Implementación de seguridad
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Kibana
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Kibana" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Kibana
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kibana/4%20Kibana.html" class="md-nav__link">
+        Instalación
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kibana/5%20Configuracion.html" class="md-nav__link">
+        Configuración
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Kibana/6%20Seguridad.html" class="md-nav__link">
+        Llave de encriptación y conexión segura a Elasticsearch
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Logstash
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Logstash" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Logstash
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="5%20Instalacion.html" class="md-nav__link">
+        Instalación
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Configuración
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="6%20Configuraci%C3%B3n.html" class="md-nav__link md-nav__link--active">
+        Configuración
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#input" class="md-nav__link">
+    Input
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    Filter
+  </a>
+  
+    <nav class="md-nav" aria-label="Filter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grok" class="md-nav__link">
+    Grok
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mutate" class="md-nav__link">
+    Mutate
+  </a>
+  
+    <nav class="md-nav" aria-label="Mutate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cuando-se-recibe-por-filebeat" class="md-nav__link">
+    Cuando se recibe por Filebeat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuando-se-recibe-por-winlogbeat" class="md-nav__link">
+    Cuando se recibe por Winlogbeat
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#translate" class="md-nav__link">
+    Translate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#date" class="md-nav__link">
+    Date
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    Output
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#input" class="md-nav__link">
+    Input
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    Filter
+  </a>
+  
+    <nav class="md-nav" aria-label="Filter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grok" class="md-nav__link">
+    Grok
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mutate" class="md-nav__link">
+    Mutate
+  </a>
+  
+    <nav class="md-nav" aria-label="Mutate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cuando-se-recibe-por-filebeat" class="md-nav__link">
+    Cuando se recibe por Filebeat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuando-se-recibe-por-winlogbeat" class="md-nav__link">
+    Cuando se recibe por Winlogbeat
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#translate" class="md-nav__link">
+    Translate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#date" class="md-nav__link">
+    Date
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    Output
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="configuracion">Configuración</h1>
+<p>El archivo de configuracion se llama <code>logstash.yml</code> y está ubicada en la ruta <code>C:\Program Files\logstash-7.16.1\config</code>. Contiene 3 secciones principales: <code>input</code>, <code>filter</code> y <code>output</code>.</p>
+<h2 id="input">Input</h2>
+<p>La información de entrada que recibe Logstash es por Filebeat o Winlogbeat (se instalarán más adelante). Los dos son simplificados como <code>beats</code> y se comunica por medio del puerto 5044.</p>
+<blockquote>
+<p>input {                              <br />
+&nbsp;&nbsp;beats {
+&nbsp;&nbsp;&nbsp;&nbsp;port =&gt; 5044                     <br />
+&nbsp;&nbsp;}                    <br />
+}</p>
+</blockquote>
+<h2 id="filter">Filter</h2>
+<p>Filter es la parte más importante en cuanto al tratamiento de los datos se refiere, puede contener varios <a href="https://www.elastic.co/guide/en/logstash/current/filter-plugins.html">pluggins</a> y sus usos dependerán del formato en que Logstash reciba la información y el formato de salida que se requiera para indexar a Elasticsearch.</p>
+<p>Para el caso del presente proyecto existen 2 fuentes de logs, los que se escriben directamente en algún fichero (ver ejemplo DDS) y aquellos que son generados como logs de Windows (ver ejemplo MACOPS). Para el primer caso Filebeat será el encargado de enviarselo a Logstash y para el segundo será Winlogbeat.</p>
+<p>Logs del sistema DDS:
+<img alt="DDS Logs" src="image5.2.png" /></p>
+<p>Logs del sistema MACOPS:
+<img alt="MACOPS Logs" src="image5.3.png" /></p>
+<p>Filebeat y Winlogbeat difieren en el formato de salida, por lo tanto la configuración también tendrá algunas diferencias. De ser así se incluirá</p>
+<h3 id="grok">Grok</h3>
+<p>Grok es una herramienta que permite identificar partes de una cadena de texto mediante expresiones regulares y asignarlos a nuevos campos que serán enviados a Elasticsearch. Cuenta con un <a href="https://github.com/hpcugent/logstash-patterns/blob/master/files/grok-patterns">diccionario</a> que agrupa las expresiones regulares más comunes y simplifica su uso. Este plugging sólo será usado para las instancias de Logstash que reciban información de Filebeat, ya que no cuentan con formato alguno, sólo es una cadena de texto llamada <code>message</code>.</p>
+<blockquote>
+<p>grok {                           <br />
+&nbsp;&nbsp;&nbsp;&nbsp;match =&gt; {"message" =&gt; [                          <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"(?m)[%{WORD:level} ] [%{TIMESTAMP_ISO8601:date}]%{GREEDYDATA:description}",              <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"(?m)[%{WORD:level}] [%{TIMESTAMP_ISO8601:date}]%{GREEDYDATA:description}",           <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"(?m){%{WORD:level} }{%{TIMESTAMP_ISO8601:date}}%{GREEDYDATA:description}",           <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"(?m){%{WORD:level}}{%{TIMESTAMP_ISO8601:date}}%{GREEDYDATA:description}",            <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"(?m)%{WORD:level} [%{TIMESTAMP_ISO8601:date}]%{GREEDYDATA:description}"            <br />
+&nbsp;&nbsp;&nbsp;&nbsp;]}            <br />
+&nbsp;&nbsp;}</p>
+</blockquote>
+<p>donde:</p>
+<ul>
+<li>
+<p><code>(?)</code> Indica que la cadena de texto se puede ser de multilínea.</p>
+</li>
+<li>
+<p><code>\[%{WORD:level} \]</code> La barra invertida se usa como caracter de escape para ignorar los Brackets. El signo porcentaje indica el inicio de una expresión regular. WORD es parte del diccionario mencionado anteriormente, su equivalente regex es <code>\b\w+\b</code>. Con esto se captura la palabra INFO, ERROR o WARN y se asigna al campo level.</p>
+</li>
+<li>
+<p><code>\[%{TIMESTAMP_ISO8601:date}\]</code> También forma de parte del diccionario y se conforma de otros términos. Dependiendo el formato de la fecha dependerá del log, en esta ocasión se usó el ISO8601.</p>
+</li>
+<li>
+<p><code>%{GREEDYDATA:description}"</code> Para el caso de uso y de los logs que se tienen, no se necesita separar más campos específicos, por lo que el resto de la cadena de texto se asignara como un campo llamado descripción. La expresión Regex de GREEDYDATA es <code>.*</code>.</p>
+</li>
+</ul>
+<p>Pareciera que la expresiones se repiten pero no son iguales porque difieren en el campo <code>\[%{WORD:level} \]</code> y <code>\[%{WORD:level}\]</code>, esto para prevenir errores de parseo para los casos en que el level de los logs sea [INFO] o [INFO ], por ejemplo.</p>
+<h3 id="mutate">Mutate</h3>
+<p>A diferencia de Grok, este pluggin no crea nuevos campos a partir de otros, si no que transforma los ya existentes. Los 2 son usados para las instancias de Logstash que reciben informacion de Filebeat y Winlogbeat.</p>
+<h4 id="cuando-se-recibe-por-filebeat">Cuando se recibe por Filebeat</h4>
+<blockquote>
+<p>mutate {                                              <br />
+&nbsp;&nbsp;&nbsp;&nbsp;rename =&gt; {"@timestamp" =&gt; "processTime"}                 <br />
+&nbsp;&nbsp;&nbsp;&nbsp;rename =&gt; {"[fields][system]" =&gt; "system"}                    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;rename =&gt; {"[fields][service name]" =&gt; "service name"}            <br />
+&nbsp;&nbsp;&nbsp;&nbsp;rename =&gt; {"[beat][hostname]" =&gt; "hostname"}</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;lowercase =&gt; ["[system]"]                     <br />
+&nbsp;&nbsp;&nbsp;&nbsp;lowercase =&gt; ["[service name]"]                   <br />
+&nbsp;&nbsp;&nbsp;&nbsp;lowercase =&gt; ["[hostname]"]                       <br />
+&nbsp;&nbsp;}                           </p>
+</blockquote>
+<p>donde:</p>
+<ul>
+<li>
+<p><code>rename</code> como su nombre indica renombra el campo de la izquierda por el de la derecha. <code>"@timestamp"</code> es la hora en que se produjo el log, Los campos con prefijo <code>[fields]</code> son personalizados y se agregan en la configuración de Filebeat. Los que tienen prefijo <code>[beats]</code> son metadata de Filebeat y Winlogbeat.</p>
+</li>
+<li>
+<p><code>lowercase</code> transforma el nombre del campo a minúscula. Particularmente se eligieron estos 3 campos porque forman parte del nombre del inidice en Elasticsearch y no se admiten caracteres en mayusculas.</p>
+</li>
+</ul>
+<h4 id="cuando-se-recibe-por-winlogbeat">Cuando se recibe por Winlogbeat</h4>
+<blockquote>
+<p>mutate {                                                                                     <br />
+&nbsp;&nbsp;&nbsp;&nbsp;rename =&gt; {"message" =&gt; "description"}                    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;rename =&gt; {"[fields][system]" =&gt; "system"}            <br />
+&nbsp;&nbsp;&nbsp;&nbsp;rename =&gt; {"[fields][service name]" =&gt; "service name"}            <br />
+&nbsp;&nbsp;&nbsp;&nbsp;rename =&gt; {"[beat][hostname]" =&gt; "hostname"}                    </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;lowercase =&gt; ["[system]"]                 <br />
+&nbsp;&nbsp;&nbsp;&nbsp;lowercase =&gt; ["[service name]"]                       <br />
+&nbsp;&nbsp;&nbsp;&nbsp;lowercase =&gt; ["[hostname]"]</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;uppercase =&gt; ["level"]                        <br />
+&nbsp;&nbsp;}</p>
+</blockquote>
+<p>Son prácticamente iguales, salvo por 2 cuestiones:</p>
+<ul>
+<li>En Winlogbeat <code>message</code> contiene el <em>cuerpo</em> del log, lo que en Filebeat se designó como <code>description</code>.</li>
+<li><code>level</code> viene pór defecto en minusculas y como los logs que se trataron con Filebeat son en mayusculas, se cambian para tenerlos en el mismo formato.</li>
+</ul>
+<p>Lo anterior se añade para tener uniformidad de los datos en Elasticsearch.</p>
+<h3 id="translate">Translate</h3>
+<p>Este pluggin sirve para cambiar el valor de los datos en base a un diccionario, con estructura similar a un <em>switch case</em>. Sólo se agregó en instancias de Logstash que tienen como fuente a Winlogbeat porque nativamente los logs de caracter informativo en su campo <code>level</code> tienen el valor <code>INFORMATION</code>, a diferencia de los logs tratados por Filebeat cuyo valor es <code>INFO</code>. Entonces nuevamente se busca la uniformidad de los datos. </p>
+<blockquote>
+<p>&nbsp;translate {                                                    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;field =&gt; "level"                              <br />
+&nbsp;&nbsp;&nbsp;&nbsp;target =&gt; "level"                             <br />
+&nbsp;&nbsp;&nbsp;&nbsp;dictionary =&gt; {                                       <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"INFORMATION" =&gt; "INFO"                             <br />
+&nbsp;&nbsp;&nbsp;&nbsp;}                                                 <br />
+&nbsp;&nbsp;}                                       </p>
+</blockquote>
+<p>Con lo anterior se indica que se analizará el campo <code>field</code> y lo resultante será modificado sobre sí mismo (opcionalmente se puede apuntar a otro campo). Si el dato tiene el valor <code>INFORMATION</code> entonces se sobreescribe como <code>INFO</code>.</p>
+<h3 id="date">Date</h3>
+<p>Cuando se usa Grok, por defecto la zona horaria que utiliza es UTC. Con la siguiente instrucción se cambia al huso horario de México.</p>
+<blockquote>
+<p>date {                                           <br />
+&nbsp;&nbsp;&nbsp;&nbsp;match =&gt; ["date","YYYY-MM-dd: HH:mm:ss,SSS", "ISO8601"]               <br />
+&nbsp;&nbsp;&nbsp;&nbsp;timezone =&gt; "America/Mexico_City"                 <br />
+&nbsp;&nbsp;}                           </p>
+</blockquote>
+<h2 id="output">Output</h2>
+<p>Antes de enviar los datos a Elasticsearch es conveniente capturar errores de parseo.</p>
+<blockquote>
+<p>output {                                                                 <br />
+&nbsp;&nbsp;if "_grokparsefailure" in [tags] {                                    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;file {                                                    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;codec =&gt; line {                                               <br />
+&nbsp;&nbsp;&nbsp;&nbsp;format =&gt; "%{[processTime]} | %{[system]} | %{[service name]} : %{[tags]} %{[message]}"}                                              <br />
+&nbsp;&nbsp;&nbsp;&nbsp;path =&gt; "C:\Program Files\Logstash\logs\grokparsefailure log.txt"         <br />
+&nbsp;&nbsp;}         </p>
+</blockquote>
+<p>Los ficheros de logs que se utilizaron no tienen un formato único, algunos varían por un espacio o caracter que generará un error en caso de que no exista algún patron Grok que lo cumpla. Si esto ocurre Logstash añade el tag <code>_grokparsefailure</code> al objeto. Para evitar que éste se envie a Elasticsearch con el formato incorrecto, se guarda en el archivo <code>grokparsefailure log.txt</code> para posterior consulta y correccion de patrones.</p>
+<blockquote>
+<p>&nbsp;else if "_dateparsefailure" in [tags]{                                             <br />
+&nbsp;&nbsp;&nbsp;&nbsp;file {                                                            <br />
+&nbsp;&nbsp;&nbsp;&nbsp;codec =&gt; line {                                                   <br />
+&nbsp;&nbsp;&nbsp;&nbsp;format =&gt; "%{[processTime]} | %{[system]} | %{[service name]} : %{[tags]} %{[message]}"}                                                                          <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;path =&gt; "C:\Program Files\Logstash\logs\dateparsefailure log.txt"   <br />
+&nbsp;&nbsp;}                                                                       </p>
+</blockquote>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="5%20Instalacion.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Instalación" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Instalación
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.c7dec7e7.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.da79ceb7.min.js"></script>
+      
+    
+  </body>
+</html>
